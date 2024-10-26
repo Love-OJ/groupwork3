@@ -4,11 +4,11 @@
 
 using namespace std;
 
-// ¼ÆËã²¿·ÖÆ¥Åä±í£¨LPSÊı×é£©
+// è®¡ç®—éƒ¨åˆ†åŒ¹é…è¡¨ï¼ˆLPSæ•°ç»„ï¼‰
 vector<int> computeLPS(const string& pattern) {
     int m = pattern.length();
     vector<int> lps(m, 0);
-    int length = 0; // Ç°×º³¤¶È
+    int length = 0; // å‰ç¼€é•¿åº¦
     int i = 1;
 
     while (i < m) {
@@ -28,13 +28,13 @@ vector<int> computeLPS(const string& pattern) {
     return lps;
 }
 
-// KMPËã·¨ÊµÏÖ
-bool kmpSearch(const string& pattern, const string& text) {
+// KMPç®—æ³•å®ç°
+bool kmpSearch(const string & pattern, const string & text) {
     int n = text.length();
     int m = pattern.length();
     vector<int> lps = computeLPS(pattern);
-    int i = 0; // textµÄË÷Òı
-    int j = 0; // patternµÄË÷Òı
+    int i = 0; // textçš„ç´¢å¼•
+    int j = 0; // patternçš„ç´¢å¼•
 
     while (i < n) {
         if (pattern[j] == text[i]) {
@@ -43,7 +43,7 @@ bool kmpSearch(const string& pattern, const string& text) {
         }
 
         if (j == m) {
-            return true; // ÕÒµ½Æ¥Åä
+            return true; // æ‰¾åˆ°åŒ¹é…
         } else if (i < n && pattern[j] != text[i]) {
             if (j != 0) {
                 j = lps[j - 1];
@@ -52,21 +52,21 @@ bool kmpSearch(const string& pattern, const string& text) {
             }
         }
     }
-    return false; // Î´ÕÒµ½Æ¥Åä
+    return false; // æœªæ‰¾åˆ°åŒ¹é…
 }
 
 int main() {
     string presetPassword, unlockSequence;
 
-    cout << "ÇëÊäÈëÉè¶¨µÄ¿ªËøÃÜÂë: ";
+    cout << "è¯·è¾“å…¥è®¾å®šçš„å¼€é”å¯†ç : ";
     cin >> presetPassword;
-    cout << "ÇëÊäÈë¿ªËø×Ö·ûĞòÁĞ: ";
+    cout << "è¯·è¾“å…¥å¼€é”å­—ç¬¦åºåˆ—: ";
     cin >> unlockSequence;
 
     if (kmpSearch(presetPassword, unlockSequence)) {
-        cout << "¿ªËø³É¹¦£¡" << endl;
+        cout << "å¼€é”æˆåŠŸï¼" << endl;
     } else {
-        cout << "¿ªËøÊ§°Ü£¡" << endl;
+        cout << "å¼€é”å¤±è´¥ï¼" << endl;
     }
 
     return 0;
