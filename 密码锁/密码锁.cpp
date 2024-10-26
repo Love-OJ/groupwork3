@@ -4,13 +4,13 @@
 
 using namespace std;
 
-//¼ÆËãÇ°×º³¤¶ÈµÄÊı×é
+//è®¡ç®—å‰ç¼€é•¿åº¦çš„æ•°ç»„
 int cot=0;
 vector<int>LPS(const string& s)
 {
     int len=s.length();
     vector<int>LPS(len,0);
-    int m=0;//¼ÇÂ¼³¤¶È
+    int m=0;//è®°å½•é•¿åº¦
     int i=1;
     while(i<len)
     {
@@ -69,53 +69,47 @@ bool open(string &parten,string & text)
 string init()
 {
     string password;
-    cout<<"ÊäÈëÄãÔ­±¾ÉèºÃµÄÃÜÂë£º"<<endl;
+    cout<<"è¾“å…¥ä½ åŸæœ¬è®¾å¥½çš„å¯†ç ï¼š"<<endl;
     cin>>password;
     return password;
 }
 void fal(string p)
 {
-
     string text;
     cin>>text;
     if(open(p,text))
     {
-        cout<<"¿ªËøÖÕÓÚ³É¹¦ÁË£¡"<<endl;
-
+        cout<<"å¼€é”ç»ˆäºæˆåŠŸäº†ï¼"<<endl;
     }
     else
     {
           cot++;
         if(cot==4)
         {
-            cout<<"¶à´ÎÊäÈë5²»³É¹¦£¡ÒÑÎŞ·¨ÔÙ´ÎÊäÈë£¡"<<endl;
-
+            cout<<"å¤šæ¬¡è¾“å…¥5ä¸æˆåŠŸï¼å·²æ— æ³•å†æ¬¡è¾“å…¥ï¼"<<endl;
         }
-
         else
         {
-            cout<<"¿ªËø»¹ÊÇÊ§°ÜÁË£¬ÇëÖØÊäÈë£º"<<endl;
+            cout<<"å¼€é”è¿˜æ˜¯å¤±è´¥äº†ï¼Œè¯·é‡è¾“å…¥ï¼š"<<endl;
             fal(p);
         }
-
-
     }
 }
+
 int main()
 {
     string text;
     string p=init();
-    cout<<"ÊäÈë¿ªËøÃÜÂë£º"<<endl;
+    cout<<"è¾“å…¥å¼€é”å¯†ç ï¼š"<<endl;
     cin>>text;
     if(open(p,text))
     {
-        cout<<"¿ªËø³É¹¦£¡"<<endl;
+        cout<<"å¼€é”æˆåŠŸï¼"<<endl;
     }
     else
     {
-        cout<<"¿ªËøÊ§°Ü£¡ÖØĞÂÊäÈë£º"<<endl;
+        cout<<"å¼€é”å¤±è´¥ï¼é‡æ–°è¾“å…¥ï¼š"<<endl;
         fal(p);
-
     }
     return 0;
 }
