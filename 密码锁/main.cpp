@@ -10,7 +10,7 @@ vector<int> computeLPS(const string& pattern) {
     vector<int> lps(m, 0);
     int length = 0; // 前缀长度
     int i = 1;
-
+//123
     while (i < m) {
         if (pattern[i] == pattern[length]) {
             length++;
